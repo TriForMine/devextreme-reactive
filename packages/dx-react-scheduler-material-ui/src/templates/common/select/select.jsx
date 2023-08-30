@@ -6,10 +6,10 @@ import { OutlinedSelect } from './outlined-select';
 
 export const Select = React.memo(({
   value,
-  availableOptions,
+  availableOptions = [],
   onValueChange,
-  readOnly,
-  type,
+  readOnly = false,
+  type = STANDARD_SELECT,
   ...restProps
 }) => {
   const ResultingSelect = type === STANDARD_SELECT ? FilledSelect : OutlinedSelect;
@@ -34,10 +34,4 @@ Select.propTypes = {
   })),
   readOnly: PropTypes.bool,
   type: PropTypes.string,
-};
-
-Select.defaultProps = {
-  readOnly: false,
-  availableOptions: [],
-  type: STANDARD_SELECT,
 };

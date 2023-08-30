@@ -29,11 +29,11 @@ const StyledDiv = styled('div')(({ theme: { typography } }) => ({
 
 export const Layout = React.memo(({
   buttonComponent: Button,
-  handleClose,
-  commit,
+  handleClose = () => undefined,
+  commit = () => undefined,
   availableOperations,
-  getMessage,
-  isDeleting,
+  getMessage = () => undefined,
+  isDeleting = false,
   ...restProps
 }) => {
   const [currentValue, setCurrentValue] = React.useState(availableOperations[0].value);
@@ -85,11 +85,4 @@ Layout.propTypes = {
   commit: PropTypes.func,
   getMessage: PropTypes.func,
   isDeleting: PropTypes.bool,
-};
-
-Layout.defaultProps = {
-  handleClose: () => undefined,
-  commit: () => undefined,
-  getMessage: () => undefined,
-  isDeleting: false,
 };

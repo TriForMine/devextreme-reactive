@@ -25,9 +25,9 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 }));
 
 export const Label = React.memo(({
-  text,
-  className,
-  type,
+  text = undefined,
+  className = undefined,
+  type = ORDINARY_LABEL,
   ...restProps
 }) => (
   <StyledTypography
@@ -45,10 +45,4 @@ Label.propTypes = {
   text: PropTypes.string,
   className: PropTypes.string,
   type: PropTypes.string,
-};
-
-Label.defaultProps = {
-  text: undefined,
-  className: undefined,
-  type: ORDINARY_LABEL,
 };

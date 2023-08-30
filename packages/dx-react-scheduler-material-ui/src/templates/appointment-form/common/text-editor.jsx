@@ -28,12 +28,12 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 }));
 
 export const TextEditor = React.memo(({
-  value,
-  placeholder,
-  className,
-  readOnly,
-  onValueChange,
-  type,
+  value = '',
+  placeholder = undefined,
+  className = undefined,
+  readOnly = false,
+  onValueChange = () => undefined,
+  type = ORDINARY_TEXT_EDITOR,
   ...restProps
 }) => {
   const textFieldType = type === NUMBER_EDITOR ? 'number' : 'text';
@@ -68,13 +68,4 @@ TextEditor.propTypes = {
   readOnly: PropTypes.bool,
   onValueChange: PropTypes.func,
   type: PropTypes.string,
-};
-
-TextEditor.defaultProps = {
-  value: '',
-  placeholder: undefined,
-  className: undefined,
-  readOnly: false,
-  onValueChange: () => undefined,
-  type: ORDINARY_TEXT_EDITOR,
 };

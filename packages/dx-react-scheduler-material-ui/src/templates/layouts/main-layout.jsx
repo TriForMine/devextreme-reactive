@@ -85,15 +85,15 @@ const StyledDiv = styled('div', {
 }));
 
 export const MainLayout = React.memo(({
-  timeScaleComponent: TimeScale,
+  timeScaleComponent: TimeScale = undefined,
   dayScaleComponent: DayScale,
   timeTableComponent: TimeTable,
   dayScaleEmptyCellComponent: DayScaleEmptyCell,
-  groupingPanelComponent: GroupingPanel,
-  groupingPanelSize,
+  groupingPanelComponent: GroupingPanel = () => null,
+  groupingPanelSize = () => null,
   setScrollingStrategy,
-  className,
-  forwardedRef,
+  className = undefined,
+  forwardedRef = undefined,
   ...restProps
 }) => {
   const layoutRef = React.useRef(null);
@@ -222,12 +222,4 @@ MainLayout.propTypes = {
   setScrollingStrategy: PropTypes.func.isRequired,
   className: PropTypes.string,
   forwardedRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
-
-MainLayout.defaultProps = {
-  groupingPanelComponent: () => null,
-  timeScaleComponent: undefined,
-  groupingPanelSize: 0,
-  className: undefined,
-  forwardedRef: undefined,
 };

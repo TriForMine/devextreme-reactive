@@ -43,15 +43,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 export const Cell = ({
-  className,
+  className = undefined,
   startDate,
-  endDate,
-  today,
+  endDate = undefined,
+  today = false,
   formatDate,
-  endOfGroup,
-  groupingInfo,
+  endOfGroup = false,
+  groupingInfo = undefined,
   // @deprecated
-  hasRightBorder,
+  hasRightBorder = false,
   ...restProps
 }) => (
   <StyledTableCell
@@ -75,13 +75,4 @@ Cell.propTypes = {
   endOfGroup: PropTypes.bool,
   hasRightBorder: PropTypes.bool,
   groupingInfo: PropTypes.arrayOf(PropTypes.object),
-};
-
-Cell.defaultProps = {
-  className: undefined,
-  endDate: undefined,
-  today: false,
-  endOfGroup: false,
-  hasRightBorder: false,
-  groupingInfo: undefined,
 };

@@ -22,11 +22,11 @@ const StyledDialogTitle = styled(DialogTitle)(({ theme: { typography } }) => ({
 
 export const Layout = React.memo(({
   buttonComponent: Button,
-  handleCancel,
-  handleConfirm,
-  getMessage,
-  isDeleting,
-  appointmentData,
+  handleCancel = () => undefined,
+  handleConfirm = () => undefined,
+  getMessage = () => undefined,
+  isDeleting = false,
+  appointmentData = { startDate: new Date(), endDate: new Date() },
   ...restProps
 }) => (
   <div
@@ -61,12 +61,4 @@ Layout.propTypes = {
     additionalInformation: PropTypes.string,
     allDay: PropTypes.bool,
   }),
-};
-
-Layout.defaultProps = {
-  handleCancel: () => undefined,
-  handleConfirm: () => undefined,
-  getMessage: () => undefined,
-  isDeleting: false,
-  appointmentData: { startDate: new Date(), endDate: new Date() },
 };

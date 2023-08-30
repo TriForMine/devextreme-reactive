@@ -47,9 +47,9 @@ const isCurrentWeekDay = (
 export const WeeklyRecurrenceSelector = React.memo(({
   formatDate,
   rRule,
-  readOnly,
-  className,
-  onValueChange,
+  readOnly = false,
+  className = undefined,
+  onValueChange = () => undefined,
   firstDayOfWeek,
   ...restProps
 }) => {
@@ -97,10 +97,4 @@ WeeklyRecurrenceSelector.propTypes = {
   readOnly: PropTypes.bool,
   className: PropTypes.string,
   firstDayOfWeek: PropTypes.number.isRequired,
-};
-
-WeeklyRecurrenceSelector.defaultProps = {
-  onValueChange: () => undefined,
-  readOnly: false,
-  className: undefined,
 };

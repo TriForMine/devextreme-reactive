@@ -7,11 +7,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 const DateEditorBase = React.memo(({
   onValueChange,
-  value,
-  readOnly,
-  className,
-  locale,
-  excludeTime,
+  value = undefined,
+  readOnly = false,
+  className = undefined,
+  locale = 'en-US',
+  excludeTime = false,
   ...restProps
 }) => {
   const memoizedChangeHandler = React.useCallback(
@@ -44,14 +44,6 @@ DateEditorBase.propTypes = {
   onValueChange: PropTypes.func.isRequired,
   locale: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   excludeTime: PropTypes.bool,
-};
-
-DateEditorBase.defaultProps = {
-  locale: 'en-US',
-  value: undefined,
-  className: undefined,
-  readOnly: false,
-  excludeTime: false,
 };
 
 export const DateEditor = DateEditorBase;

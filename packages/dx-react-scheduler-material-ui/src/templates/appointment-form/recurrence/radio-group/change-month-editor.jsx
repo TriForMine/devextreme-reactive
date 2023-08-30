@@ -28,18 +28,18 @@ const StyledFormControlLabel = styled(FormControlLabel)(({ theme: { spacing } })
 }));
 
 export const ChangeMonthEditor = React.memo(({
-  getMessage,
+  getMessage = () => undefined,
   labelComponent: Label,
   textEditorComponent: TextEditor,
   selectComponent: Select,
-  readOnly,
-  readOnlyEditors,
+  readOnly = false,
+  readOnlyEditors = false,
   month,
   changeMonth,
   months,
   dayNumber,
   changeByMonthDay,
-  className,
+  className = undefined,
   ...restProps
 }) => {
   const StyledLabel = styled(Label)(() => ({
@@ -118,11 +118,4 @@ ChangeMonthEditor.propTypes = {
   changeByMonthDay: PropTypes.func.isRequired,
   className: PropTypes.string,
   readOnlyEditors: PropTypes.bool,
-};
-
-ChangeMonthEditor.defaultProps = {
-  getMessage: () => undefined,
-  readOnly: false,
-  className: undefined,
-  readOnlyEditors: false,
 };

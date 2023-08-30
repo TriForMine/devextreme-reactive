@@ -92,18 +92,18 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const CellBase = React.memo(({
-  className,
+  className = undefined,
   startDate,
-  endDate,
-  today,
-  otherMonth,
+  endDate = undefined,
+  today = false,
+  otherMonth = false,
   formatDate,
-  isShaded,
-  endOfGroup,
-  groupingInfo,
-  groupOrientation,
+  isShaded = false,
+  endOfGroup = false,
+  groupingInfo = undefined,
+  groupOrientation = HORIZONTAL_GROUP_ORIENTATION,
   // @deprecated
-  hasRightBorder,
+  hasRightBorder = false,
   ...restProps
 }) => {
   const isFirstMonthDay = startDate.getDate() === 1;
@@ -146,18 +146,6 @@ CellBase.propTypes = {
   hasRightBorder: PropTypes.bool,
   groupingInfo: PropTypes.arrayOf(PropTypes.object),
   groupOrientation: PropTypes.oneOf([HORIZONTAL_GROUP_ORIENTATION, VERTICAL_GROUP_ORIENTATION]),
-};
-
-CellBase.defaultProps = {
-  endDate: undefined,
-  className: undefined,
-  today: false,
-  otherMonth: false,
-  isShaded: false,
-  endOfGroup: false,
-  hasRightBorder: false,
-  groupingInfo: undefined,
-  groupOrientation: HORIZONTAL_GROUP_ORIENTATION,
 };
 
 export const Cell = (CellBase);

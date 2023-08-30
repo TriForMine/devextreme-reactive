@@ -25,10 +25,10 @@ const StyledTextField = styled(TextField)(({
 
 export const FilledSelect = React.memo(({
   value,
-  availableOptions,
-  onValueChange,
-  readOnly,
-  className,
+  availableOptions = [],
+  onValueChange = () => undefined,
+  readOnly = false,
+  className = undefined,
   ...restProps
 }) => {
   const handleChange = (event) => {
@@ -68,11 +68,4 @@ FilledSelect.propTypes = {
   })),
   readOnly: PropTypes.bool,
   className: PropTypes.string,
-};
-
-FilledSelect.defaultProps = {
-  readOnly: false,
-  onValueChange: () => undefined,
-  availableOptions: [],
-  className: undefined,
 };

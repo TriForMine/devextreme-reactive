@@ -47,7 +47,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 }));
 
 export const TitleCell = React.memo(({
-  getMessage, className, fixedHeight, ...restProps
+  getMessage, className = undefined, fixedHeight = undefined, ...restProps
 }) => (
   <StyledDiv
     className={classNames({
@@ -73,9 +73,4 @@ TitleCell.propTypes = {
   getMessage: PropTypes.func.isRequired,
   className: PropTypes.string,
   fixedHeight: PropTypes.bool,
-};
-
-TitleCell.defaultProps = {
-  className: undefined,
-  fixedHeight: false,
 };

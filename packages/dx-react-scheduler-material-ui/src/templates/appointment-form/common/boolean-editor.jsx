@@ -18,9 +18,9 @@ const StyledFormControlLabel = styled(FormControlLabel)({
 });
 
 export const BooleanEditor = React.memo(({
-  label,
-  value,
-  readOnly,
+  label = undefined,
+  value = false,
+  readOnly = false,
   onValueChange,
   ...restProps
 }) => (
@@ -44,10 +44,4 @@ BooleanEditor.propTypes = {
   readOnly: PropTypes.bool,
   value: PropTypes.bool,
   onValueChange: PropTypes.func.isRequired,
-};
-
-BooleanEditor.defaultProps = {
-  label: undefined,
-  readOnly: false,
-  value: false,
 };

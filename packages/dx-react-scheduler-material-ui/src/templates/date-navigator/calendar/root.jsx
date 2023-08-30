@@ -29,7 +29,7 @@ export class Root extends React.PureComponent {
 
   render() {
     const {
-      selectedDate, firstDayOfWeek, getCells,
+      selectedDate, firstDayOfWeek = 0, getCells,
       textComponent: Text,
       navigationButtonComponent: NavigationButton,
       navigatorComponent: Navigator,
@@ -37,7 +37,7 @@ export class Root extends React.PureComponent {
       cellComponent: Cell,
       headerRowComponent: HeaderRow,
       headerCellComponent: HeaderCell,
-      onSelectedDateChange,
+      onSelectedDateChange = () => {},
       formatDate,
       ...restProps
     } = this.props;
@@ -88,9 +88,4 @@ Root.propTypes = {
   formatDate: PropTypes.func.isRequired,
   firstDayOfWeek: PropTypes.number,
   onSelectedDateChange: PropTypes.func,
-};
-
-Root.defaultProps = {
-  onSelectedDateChange: () => {},
-  firstDayOfWeek: 0,
 };

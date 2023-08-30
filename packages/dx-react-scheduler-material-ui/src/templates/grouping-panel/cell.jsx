@@ -85,18 +85,18 @@ const StyledTableCell = styled(TableCell, {
 }));
 
 export const Cell = React.memo(({
-  className,
+  className = undefined,
   group,
   colSpan,
-  rowSpan,
+  rowSpan = 1,
   left,
-  endOfGroup,
-  groupedByDate,
-  children,
-  height,
-  groupOrientation,
-  textStyle,
-  topOffset,
+  endOfGroup = true,
+  groupedByDate = true,
+  children = null,
+  height = 48,
+  groupOrientation = HORIZONTAL_GROUP_ORIENTATION,
+  textStyle = {},
+  topOffset = undefined,
   ...restProps
 }) => {
   const cellHeight = height / DEFAULT_SPACING;
@@ -153,16 +153,4 @@ Cell.propTypes = {
   textStyle: PropTypes.object,
   topOffset: PropTypes.number,
   children: PropTypes.node,
-};
-
-Cell.defaultProps = {
-  className: undefined,
-  endOfGroup: true,
-  rowSpan: 1,
-  height: 48,
-  groupOrientation: HORIZONTAL_GROUP_ORIENTATION,
-  children: null,
-  groupedByDate: true,
-  textStyle: {},
-  topOffset: undefined,
 };

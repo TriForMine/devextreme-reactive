@@ -76,18 +76,18 @@ const StyledTableCell = styled(TableCell, {
 }));
 
 export const Cell = ({
-  className,
-  children,
-  startDate,
-  endDate,
-  currentTimeIndicatorPosition,
-  currentTimeIndicatorComponent: CurrentTimeIndicator,
-  isShaded,
-  endOfGroup,
-  groupingInfo,
-  groupOrientation,
+  className = undefined,
+  children = null,
+  startDate = new Date(),
+  endDate = new Date(),
+  currentTimeIndicatorPosition = undefined,
+  currentTimeIndicatorComponent: CurrentTimeIndicator = () => null,
+  isShaded = false,
+  endOfGroup = false,
+  groupingInfo = undefined,
+  groupOrientation = HORIZONTAL_GROUP_ORIENTATION,
   // @deprecated
-  hasRightBorder,
+  hasRightBorder = false,
   ...restProps
 }) => {
   const isNow = !!currentTimeIndicatorPosition;
@@ -130,18 +130,4 @@ Cell.propTypes = {
   hasRightBorder: PropTypes.bool,
   groupingInfo: PropTypes.arrayOf(PropTypes.object),
   groupOrientation: PropTypes.oneOf([HORIZONTAL_GROUP_ORIENTATION, VERTICAL_GROUP_ORIENTATION]),
-};
-
-Cell.defaultProps = {
-  children: null,
-  className: undefined,
-  startDate: new Date(),
-  endDate: new Date(),
-  currentTimeIndicatorPosition: undefined,
-  currentTimeIndicatorComponent: () => null,
-  isShaded: false,
-  endOfGroup: false,
-  hasRightBorder: false,
-  groupingInfo: undefined,
-  groupOrientation: HORIZONTAL_GROUP_ORIENTATION,
 };

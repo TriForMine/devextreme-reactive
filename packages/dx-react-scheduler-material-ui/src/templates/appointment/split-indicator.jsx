@@ -56,7 +56,7 @@ const StyledDiv = styled('div')({
 });
 
 export const SplitIndicator = React.memo(({
-  position, appointmentType, className, ...restProps
+  position, appointmentType, className = undefined, ...restProps
 }) => {
   const vertical = appointmentType === VERTICAL_TYPE;
   const start = position === POSITION_START;
@@ -78,8 +78,4 @@ SplitIndicator.propTypes = {
   appointmentType: PropTypes.oneOf([VERTICAL_TYPE, HORIZONTAL_TYPE]).isRequired,
   position: PropTypes.oneOf([POSITION_START, POSITION_END]).isRequired,
   className: PropTypes.string,
-};
-
-SplitIndicator.defaultProps = {
-  className: undefined,
 };

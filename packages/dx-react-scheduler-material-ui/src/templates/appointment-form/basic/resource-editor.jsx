@@ -57,11 +57,11 @@ const getResourceInstance = (resourceInstances, id) => resourceInstances
   .find(item => item.id === id);
 
 export const ResourceEditor = React.memo(({
-  readOnly,
-  resource,
-  appointmentResources,
-  onResourceChange,
-  className,
+  readOnly = false,
+  resource = {},
+  appointmentResources = [],
+  onResourceChange = () => undefined,
+  className = undefined,
   ...restProps
 }) => {
   const values = appointmentResources.reduce((acc, resourceItem) => (
@@ -141,12 +141,4 @@ ResourceEditor.propTypes = {
   onResourceChange: PropTypes.func,
   resource: PropTypes.object,
   className: PropTypes.string,
-};
-
-ResourceEditor.defaultProps = {
-  className: undefined,
-  readOnly: false,
-  appointmentResources: [],
-  onResourceChange: () => undefined,
-  resource: {},
 };

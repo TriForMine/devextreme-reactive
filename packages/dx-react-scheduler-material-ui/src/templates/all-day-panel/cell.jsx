@@ -41,15 +41,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 export const Cell = ({
-  className,
-  children,
-  startDate,
-  endDate,
-  endOfGroup,
-  groupingInfo,
-  groupOrientation,
+  className = undefined,
+  children = null,
+  startDate = undefined,
+  endDate = undefined,
+  endOfGroup = false,
+  groupingInfo = undefined,
+  groupOrientation = HORIZONTAL_GROUP_ORIENTATION,
   // @deprecated
-  hasRightBorder,
+  hasRightBorder = false,
   ...restProps
 }) => (
   <StyledTableCell
@@ -73,15 +73,4 @@ Cell.propTypes = {
   endOfGroup: PropTypes.bool,
   groupingInfo: PropTypes.arrayOf(PropTypes.object),
   groupOrientation: PropTypes.oneOf([HORIZONTAL_GROUP_ORIENTATION, VERTICAL_GROUP_ORIENTATION]),
-};
-
-Cell.defaultProps = {
-  children: null,
-  startDate: undefined,
-  endDate: undefined,
-  className: undefined,
-  hasRightBorder: false,
-  endOfGroup: false,
-  groupingInfo: undefined,
-  groupOrientation: HORIZONTAL_GROUP_ORIENTATION,
 };

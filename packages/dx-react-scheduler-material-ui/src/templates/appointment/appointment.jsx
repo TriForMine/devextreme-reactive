@@ -57,14 +57,14 @@ const StyledDiv = styled('div')(({
 }));
 
 export const Appointment = ({
-  className,
-  children,
-  data,
+  className = undefined,
+  children = undefined,
+  data = {},
   onClick: handleClick,
-  draggable,
-  isShaded,
-  resources,
-  forwardedRef,
+  draggable = false,
+  isShaded = false,
+  resources = [],
+  forwardedRef = undefined,
   ...restProps
 }) => {
   const onClick = handleClick
@@ -102,14 +102,4 @@ Appointment.propTypes = {
   draggable: PropTypes.bool,
   isShaded: PropTypes.bool,
   forwardedRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
-
-Appointment.defaultProps = {
-  resources: [],
-  onClick: undefined,
-  className: undefined,
-  data: {},
-  draggable: false,
-  isShaded: false,
-  forwardedRef: undefined,
 };

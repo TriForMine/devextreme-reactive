@@ -19,7 +19,7 @@ const StyledTable = styled(Table)({
 export const Layout = React.memo(({
   setCellElementsMeta,
   cellsData,
-  className,
+  className = undefined,
   cellComponent: Cell,
   rowComponent: Row,
   formatDate,
@@ -65,7 +65,4 @@ Layout.propTypes = {
   rowComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   setCellElementsMeta: PropTypes.func.isRequired,
   className: PropTypes.string,
-};
-Layout.defaultProps = {
-  className: undefined,
 };

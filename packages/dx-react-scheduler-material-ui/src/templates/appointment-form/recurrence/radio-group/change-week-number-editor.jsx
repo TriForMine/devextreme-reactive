@@ -59,12 +59,12 @@ const StyledRadio = styled(Radio)(({ theme: { spacing } }) => ({
 }));
 
 export const ChangeWeekNumberEditor = React.memo(({
-  getMessage,
+  getMessage = () => undefined,
   labelComponent: Label,
   selectComponent: Select,
-  readOnly,
-  readOnlyEditors,
-  className,
+  readOnly = false,
+  readOnlyEditors = false,
+  className = undefined,
   weekNumber,
   weekNumbers,
   changeWeekNumber,
@@ -147,11 +147,4 @@ ChangeWeekNumberEditor.propTypes = {
   })).isRequired,
   className: PropTypes.string,
   readOnlyEditors: PropTypes.bool,
-};
-
-ChangeWeekNumberEditor.defaultProps = {
-  getMessage: () => undefined,
-  readOnly: false,
-  className: undefined,
-  readOnlyEditors: false,
 };

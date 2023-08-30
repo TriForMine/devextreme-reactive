@@ -31,10 +31,10 @@ const StyledOutlinedInput = styled(OutlinedInput)(() => ({
 
 export const OutlinedSelect = React.memo(({
   value,
-  availableOptions,
-  onValueChange,
-  readOnly,
-  inputClasses,
+  availableOptions = [],
+  onValueChange = () => undefined,
+  readOnly = false,
+  inputClasses = null,
   ...restProps
 }) => {
   const handleChange = (event) => {
@@ -76,11 +76,4 @@ OutlinedSelect.propTypes = {
   })),
   readOnly: PropTypes.bool,
   inputClasses: PropTypes.object,
-};
-
-OutlinedSelect.defaultProps = {
-  readOnly: false,
-  onValueChange: () => undefined,
-  availableOptions: [],
-  inputClasses: null,
 };
